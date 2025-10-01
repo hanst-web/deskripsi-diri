@@ -1,0 +1,406 @@
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="notification-container"></div>
+
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="">
+                    <i class=""></i>
+                </div>
+                <span>Gustiawan</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-section="dashboard" data-content="dashboard-content">
+                    <i class="fas fa-home"></i>
+                <span>Dasbord</span>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li data-section="analytics" data-content="analytics-content">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analitik</span>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li data-section="projects" data-content="projects-content">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Proyek</span>
+                    <div class="nav-indicator"></div>
+                </li>
+                <li data-section="messages" data-content="messages-content">
+                    <i class="fas fa-envelope"></i>
+                    <span>Pesan</span>
+                    <div class="nav-indicator"></div>
+                    <span class="badge">5</span>
+                </li>
+                <li data-section="settings" data-content="settings-content">
+                    <i class="fas fa-cog"></i>
+                    <span>Pengaturan</span>
+                    <div class="nav-indicator"></div>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <div class="header-left">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari apa saja...">
+                </div>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <div class="notification-trigger">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </div>
+                        <div class="notifications-dropdown">
+                            <div class="notifications-header">
+                                <div class="header-left">
+                                    <h3 class="notifications-title">Notifikasi</h3>
+                                    <span class="mark-all">Tandai semua dibaca</span>
+                                </div>
+                                <button class="settings-btn">
+                                    <i class="fas fa-cog"></i>
+                                    Pengaturan
+                                </button>
+                            </div>
+                            <div class="filter-pills">
+                                <span class="filter-pill active">Semua</span>
+                                <span class="filter-pill">Belum Dibaca</span>
+                                <span class="filter-pill">Penting</span>
+                            </div>
+                            <div class="notification-list">
+                            </div>
+                            <div class="dropdown-footer">
+                                <button class="filter-button">
+                                    <i class="fas fa-clock"></i>
+                                    7 hari terakhir
+                                </button>
+                                <button class="filter-button">
+                                    <i class="fas fa-filter"></i>
+                                    Filter
+                                </button>
+                                <a href="#" class="view-all">Lihat Semua</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile">
+                        <div class="profile-trigger">
+                            <div class="profile-avatar">
+                                <span class="avatar-text">AG</span>
+                            </div>
+                            <div class="profile-info">
+                                <span class="profile-name">Asep Gustiawan</span>
+                                <span class="profile-role">Atmin</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="profile-dropdown">
+                            <div class="dropdown-header">
+                                <div class="header-avatar">
+                                    <span class="avatar-text">AG</span>
+                                </div>
+                                <div class="header-info">
+                                    <h4>Asep Gustiawan</h4>
+                                    <span>gustiawandev@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <i class="fas fa-user"></i>
+                                    <span>Profil Saya</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-cog"></i>
+                                    <span>Pengaturan</span>
+                                </li>
+                                    <li>
+                                        <i class="fas fa-palette"></i>
+                                        <span>Dark Mode</span>
+                                        <label class="theme-switch">
+                                            <input type="checkbox" id="theme-toggle">
+                                            <span class="switch-slider"></span>
+                                <li>
+                                    <i class="fas fa-bell"></i>
+                                    <span>Notif</span>
+                                </li>
+                            </ul>
+                            <div class="dropdown-divider"></div>
+                            <ul class="dropdown-menu">
+                                <li class="logout">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Keluar</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div id="dashboard-content" class="content-section active">
+                <div class="dashboard-grid">
+                    <div class="stats-container">
+                        <div class="stat-card glow">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Total User</h3>
+                                <p class="counter" data-target="15423">0</p>
+                                <span class="trend positive">+12.5%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glow">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Pendapatan</h3>
+                                <p class="counter" data-target="84591">0</p>
+                                <span class="trend positive">+2.6%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glow">
+                            <div class="stat-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Penjualan</h3>
+                                <p class="counter" data-target="24895">0</p>
+                                <span class="trend negative">-1.9%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glow">
+                            <div class="stat-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Tiket</h3>
+                                <p class="counter" data-target="1287">0</p>
+                                <span class="trend positive">+7.8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-container">
+                        <div class="chart-card glow">
+                            <div class="revenue-header">
+                                <h2>Analisis Pendapatan</h2>
+                                <select class="revenue-filter">
+                                    <option value="1">24 Jam Terakhir</option>
+                                    <option value="7" selected>7 Hari Terakhir</option>
+                                    <option value="30">30 Hari Terakhir</option>
+                                    <option value="90">90 Hari Terakhir</option>
+                                    <option value="365">Tahun Lalu</option>
+                                </select>
+                            </div>
+                            <div id="revenueChart"></div>
+                        </div>
+                        <div class="chart-card glow">
+                            <div class="chart-header">
+                                <h3>Aktivitas Pengguna</h3>
+                                <div class="chart-actions">
+                                    <div class="legend">
+                                        <span class="legend-item">
+                                            <span class="dot new"></span> Pengguna Baru
+                                        </span>
+                                        <span class="legend-item">
+                                            <span class="dot returning"></span> Kembali
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="userActivityChart"></div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card glow">
+                        <div class="activity-header">
+                            <h2>Aktivitas Terbaru</h2>
+                            <button class="filter-button">
+                                <i class="fas fa-filter"></i>
+                                Filter
+                            </button>
+                        </div>
+                        <div class="activity-list" id="activityList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="analytics-content" class="content-section">
+                <div class="section-header">
+                <h2>Ikhtisar Analitik</h2>
+                <p>Lacak kinerja dan pertumbuhan bisnis Anda</p>
+            </div>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div id="salesTrendChart"></div>
+                </div>
+                <div class="analytics-card">
+                    <div id="conversionChart"></div>
+                </div>
+                <div class="analytics-metrics">
+                    <div class="metric-card">
+                        <i class="fas fa-users"></i>
+                        <div class="metric-info">
+                            <h3>Total Pengguna</h3>
+                            <span class="counter" data-target="15423">0</span>
+                            <p class="trend positive">+19.2% <span>vs bulan lalu</span></p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="metric-info">
+                            <h3>Penjualan</h3>
+                            <span class="counter" data-target="8745">0</span>
+                            <p class="trend positive">+2.9% <span>vs bulan lalu</span></p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="metric-info">
+                            <h3>Pendapatan</h3>
+                            <span class="counter" data-target="452680">Rp0</span>
+                            <p class="trend positive">+12.7% <span>vs bulan lalu</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div id="projects-content" class="content-section">
+                <div class="section-header">
+                    <h2>Manajemen Proyek</h2>
+                    <p>Lacak dan kelola proyek yang sedang berjalan</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Website Redesign</h3>
+                            <span class="status in-progress">Proses</span>
+                        </div>
+                        <p>Memodernisasi situs web perusahaan dengan fitur baru dan UI/UX yang ditingkatkan</p>
+                        <div class="project-meta">
+                            <div class="team-members">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=6d5acd&color=fff" alt="Team Member">
+                                <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=4361ee&color=fff" alt="Team Member">
+                                <img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=2ed573&color=fff" alt="Team Member">
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Mobile App Development</h3>
+                            <span class="status pending">Pending</span>
+                        </div>
+                        <p>Membuat aplikasi mobile baru untuk keterlibatan pelanggan</p>
+                        <div class="project-meta">
+                            <div class="team-members">
+                                <img src="https://ui-avatars.com/api/?name=Sarah+Wilson&background=ffa502&color=fff" alt="Team Member">
+                                <img src="https://ui-avatars.com/api/?name=Tom+Brown&background=ff4757&color=fff" alt="Team Member">
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 30%"></div>
+                                </div>
+                                <span>30%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="messages-content" class="content-section">
+                <div class="section-header">
+                    <h2>Pesan</h2>
+                    <p>Hub komunikasi Anda</p>
+                </div>
+                <div class="messages-container">
+                    <div class="message-list">
+                        <div class="message-item unread">
+                            <img src="https://ui-avatars.com/api/?name=Gustiawan+Asep&background=ffa502&color=fff" alt="Gustiawan Asep">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Gustiawan Asep</h4>
+                                    <span>2 jam yang lalu</span>
+                                </div>
+                                <p>Halo, saya sudah menyelesaikan desain awal untuk proyek baru. Mohon feedbacknya!</p>
+                            </div>
+                        </div>
+                        <div class="message-item">
+                            <img src="https://ui-avatars.com/api/?name=Asep+Gustiawan&background=2ed573&color=fff" alt="Asep Gustiawan">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <h4>Asep Gustiawan</h4>
+                                    <span>5 jam yang lalu</span>
+                                </div>
+                                <p>Deploy terbaru berhasil. Semua sistem berjalan lancar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings-content" class="content-section">
+                <div class="section-header">
+                    <h2>Pengaturan</h2>
+                    <p>Kustomisasi pengalaman dasbor Anda</p>
+                </div>
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Preferensi Tema</h3>
+                        <div class="setting-option">
+                            <span>Mode Gelap</span>
+                            <label class="switch">
+                                <input type="checkbox" id="theme-toggle-settings" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-option">
+                            <span>Tampilan Kompak</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h3>Notifikasi</h3>
+                        <div class="setting-option">
+                            <span>Notifikasi Email</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-option">
+                            <span>Notifikasi Push</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
